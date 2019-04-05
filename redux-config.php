@@ -7,7 +7,6 @@
         return;
     }
 
-
     // This is your option name where all the Redux data is stored.
     $opt_name = "wp_logger";
 
@@ -201,7 +200,7 @@
                 // 'title'    => __('Raw output', 'wp-logger'),
                 // 'subtitle' => __('Subtitle text goes here.', 'wp-logger'),
                 // 'desc'     => __('This is the description field for additional info.', 'wp-logger'),
-                'content'  => 'You can find the log files inside wp-content/uploads/wp-logger directory',
+                'content'  => 'You can find the log files inside <strong>/wp-content/uploads/wp-logger</strong> directory',
                 'required' => array('wp_logger_type','equals','file')
             ),
 
@@ -212,7 +211,7 @@
                 'subtitle' => __(),
                 'options'  => array(
                     'file' => 'File Logger',
-                    'sentry' => 'Sentry Logger'
+                    // 'sentry' => 'Sentry Logger'
                     ),
                 'default' => 'file',
             ),
@@ -231,6 +230,15 @@
                 'title'    => __( 'Log request headers ?', 'wp-logger' ),
                 'subtitle' => __( ),
                 'default'  => false
+            ),
+
+            array(
+                'id'       => 'wp_logger_log_retention',
+                'type'     => 'text',
+                'validate' => 'numeric',
+                'title'    => __( 'Log Retention', 'wp-logger' ),
+                'subtitle' => __( ),
+                'default'  => 30
             ),
 
             // array(
@@ -357,3 +365,4 @@
             return $sections;
         }
     }
+?>

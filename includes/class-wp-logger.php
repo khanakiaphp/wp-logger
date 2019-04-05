@@ -35,7 +35,8 @@ class WP_LOGGER
      */
     public function __construct()
     {
-       
+        global $wp_logger;
+        $this->deleteLog($wp_logger['wp_logger_log_retention']);
     }
 
     function init() {
@@ -113,4 +114,17 @@ class WP_LOGGER
         return $ipaddress;
     }
 
+
+    function deleteLog($days) {
+        $files = glob(WP_LOGGER_UPLOAD_DIR."/*");
+        $now   = time();
+        
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                if ($now - filemtime($file) >= 60 * 60 * 24 * $days) { // 2 days
+                    unlink($file);
+                }
+            }
+        }
+    }
 }

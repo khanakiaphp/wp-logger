@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: WP Logger - Knesk
- * Description: Logs every single request made to your wordpress website and helps you to tighten security by analysing the requests made to your website.
+ * Plugin Name: WP Logger - Tenbulls
+ * Description: Logs every single request made to your Wordpress website and helps you to tighten security by analysing the requests made to your website.
  * Version: 1.0.0
  * Author: Aman Khanakia
  * Author URI: https://wordpress.org/support/users/mrkhanakia/
@@ -19,6 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Define WP_LOGGER_PLUGIN_FILE.
 if ( ! defined( 'WP_LOGGER_PLUGIN_FILE' ) ) {
 	define( 'WP_LOGGER_PLUGIN_FILE', __FILE__ );
+}
+if( ! defined('WP_LOGGER_UPLOAD_DIR')) {
+    define( 'WP_LOGGER_UPLOAD_DIR', wp_get_upload_dir()["basedir"].'/wp-logger' );
+    
 }
 
 
@@ -58,16 +62,16 @@ if ( ! function_exists( 'wp_logger_plugin_settings' ) ) {
 			require_once( dirname( __FILE__ ) . '/vendor/redux-framework/ReduxCore/framework.php' );
 		}
 		
-	
 		if ( ! class_exists( 'WP_LOGGER_FILE' ) ) {
 			include_once 'includes/class-wp-logger.php';
-			$WP_LOGGER = WP_LOGGER::instance();
-			$WP_LOGGER->init();
-		}
+        }
+        
+        $WP_LOGGER = WP_LOGGER::instance();
+        $WP_LOGGER->init();
 	}
 	add_action( 'wp_loaded', 'wp_logger_plugin_settings' );
-
 }
+
 if ( ! function_exists( 'wp_logger_redux_init' ) ) {
 	add_action( 'redux/init', 'wp_logger_redux_init' );
 	function wp_logger_redux_init() {
