@@ -1,0 +1,3 @@
+## Logs every single request made to your wordpress website and helps you to tighten security by analyzing the requests made to your website.
+
+This plugin was developed out of pain as there is no such plugin yet available for wordpress to log every single request that's why i built this plugin to log every single wordpress request so we can find out spammer ip and the request url and data they are submitting ,thus we can prevent spamming and fix the issue.

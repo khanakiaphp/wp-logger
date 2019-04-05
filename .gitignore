@@ -1,0 +1,56 @@
+# ignore all files starting with . or ~
+##.*
+~*
+##demo11
+composer.lock
+
+# ignore node dependency directories (used by grunt)
+node_modules/
+bower_components/
+compiled/
+.sass-cache/
+
+# ignore OS generated files
+.DS_Store
+ehthumbs.db
+Thumbs.db
+*.idea
+*.TMP
+*.tmp
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore backup and cache directory created by wordpress plugins
+/cache/
+
+# ignore server created files
+error_log
+/tmp/
+/logs/
+/log/
+/cli/
+/cgi-bin/
+
+# ignore custom directories
+/ajaxplorer/
+/Codiad/
+/codiad/
+/ignore/
+/qa/
+/tool/

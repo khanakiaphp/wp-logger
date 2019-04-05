@@ -1,0 +1,12 @@
+{
+    "require": {
+        "sentry/sentry": "^1.8",
+        "redux-framework/redux-framework": "^3.6",
+        "monolog/monolog": "^1.24"
+    },
+    "extra": {
+        "installer-paths": {
+            "vendor/{$name}": ["redux-framework/redux-framework"]
+        }
+    }
+}
