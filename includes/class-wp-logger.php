@@ -35,12 +35,11 @@ class WP_LOGGER
      */
     public function __construct()
     {
-        global $wp_logger;
-        $this->deleteLog($wp_logger['wp_logger_log_retention']);
+        
     }
 
     function init() {
-        global $wp_logger;
+        $wp_logger = get_option('wp_logger');
         if($wp_logger['wp_logger_type']=='file') {
             $this->_initFileLogger();
         }
@@ -48,7 +47,10 @@ class WP_LOGGER
 
 
     function _initFileLogger() {
-        global $wp_logger;
+        $wp_logger = get_option('wp_logger');
+
+        $this->deleteLog();
+
         if ( ! class_exists( 'WP_LOGGER_FILE' ) ) {
             include_once dirname( __FILE__ ).'/class-wp-logger-file.php';
         }
@@ -115,13 +117,24 @@ class WP_LOGGER
     }
 
 
-    function deleteLog($days) {
+    function deleteLog() {
         $files = glob(WP_LOGGER_UPLOAD_DIR."/*");
         $now   = time();
+        $wp_logger = get_option('wp_logger');
+        $days = $wp_logger['wp_logger_log_retention'];
+        
         
         foreach ($files as $file) {
             if (is_file($file)) {
                 if ($now - filemtime($file) >= 60 * 60 * 24 * $days) { // 2 days
+                    // file_put_contents(__DIR__.'/b.log', json_encode($file)."\n", FILE_APPEND);
+                    // file_put_contents(__DIR__.'/b.log', json_encode(array(
+                    //     'now' => $now,
+                    //     'filetime' => filemtime($file),
+                    //     'timeg' => 60 * 60 * 24 * $days,
+                    //     'diff' => $now - filemtime($file),
+                    //     '$days' => $days
+                    // ))."\n", FILE_APPEND);
                     unlink($file);
                 }
             }

@@ -208,7 +208,7 @@
                 'id' => 'wp_logger_type',
                 'type' => 'select',
                 'title' => __('Type', 'wp-logger'),
-                'subtitle' => __(),
+                // 'subtitle' => __(),
                 'options'  => array(
                     'file' => 'File Logger',
                     // 'sentry' => 'Sentry Logger'
@@ -219,16 +219,14 @@
             array(
                 'id'       => 'wp_logger_log_admin_request',
                 'type'     => 'switch',
-                'title'    => __( 'Log all request from Admin ?', 'wp-logger' ),
-                'subtitle' => __( ),
+                'title'    => __( 'Log all request from Admin ?', 'wp-logger' ), 
                 'default'  => false
             ),
 
             array(
                 'id'       => 'wp_logger_log_request_headers',
                 'type'     => 'switch',
-                'title'    => __( 'Log request headers ?', 'wp-logger' ),
-                'subtitle' => __( ),
+                'title'    => __( 'Log request headers ?', 'wp-logger' ), 
                 'default'  => false
             ),
 
@@ -236,8 +234,7 @@
                 'id'       => 'wp_logger_log_retention',
                 'type'     => 'text',
                 'validate' => 'numeric',
-                'title'    => __( 'Log Retention', 'wp-logger' ),
-                'subtitle' => __( ),
+                'title'    => __( 'Log Retention', 'wp-logger' ), 
                 'default'  => 30
             ),
 

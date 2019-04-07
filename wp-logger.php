@@ -72,12 +72,18 @@ if ( ! function_exists( 'wp_logger_plugin_settings' ) ) {
 	add_action( 'wp_loaded', 'wp_logger_plugin_settings' );
 }
 
+
 if ( ! function_exists( 'wp_logger_redux_init' ) ) {
 	add_action( 'redux/init', 'wp_logger_redux_init' );
 	function wp_logger_redux_init() {
-		require_once( dirname( __FILE__ ) . '/redux-config.php' );
-		Redux::init($opt_name);
+        require_once( dirname( __FILE__ ) . '/redux-config.php' );
+        Redux::init($opt_name);
 	}
+}
+
+if ( class_exists("Redux") ) {
+    require_once( dirname( __FILE__ ) . '/redux-config.php' );
+    Redux::init($opt_name);
 }
 
 

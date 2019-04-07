@@ -2,7 +2,7 @@
 **Tags:** logger, logging, security, development  
 **Requires at least:** 4.0  
 **Tested up to:** 5.1  
-**Stable tag:** 1.0.0  
+**Stable tag:** 1.0.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -42,6 +42,10 @@ After you enabled the settings it will start logging all the request made to you
 
 ### 1.0 
 * First version of WP Logger plugin.
+
+
+### 1.0.1 
+* Log Retention Bug Fixed
 
 
 ## Screenshots 
